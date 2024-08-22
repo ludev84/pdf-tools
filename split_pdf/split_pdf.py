@@ -20,4 +20,4 @@ def split_pdf_to_pages(filename):
 #         with open(output_filename, 'wb') as out:
 #             pdf_writer.write(out)
 
-split_pdf_to_pages('file_to_split.pdf')
+split_pdf_to_pages('input.pdf')
