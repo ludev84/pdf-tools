@@ -13,7 +13,7 @@ images_to_crop/*
 images_cropped/*
 !images_cropped/.gitkeep
 
-venv/
+.venv/
 *.pdf
 *.jpg
 *.png
