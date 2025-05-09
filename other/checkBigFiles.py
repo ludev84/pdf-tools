@@ -20,7 +20,10 @@ def find_largest_files(directory, num_files=20):
             filepath = os.path.join(root, filename)
             try:
                 size = os.path.getsize(filepath)
-                file_sizes.append((size, filepath))
+                # Convert size to MB
+                file_size_kb = size / 1024
+                file_size_mb = file_size_kb / 1024
+                file_sizes.append((file_size_mb, filename))
             except OSError:
                 # Handle potential errors (e.g., permission denied, broken symlinks)
                 print(f"Warning: Could not get size of {filepath}")
@@ -38,7 +41,7 @@ if __name__ == "__main__":
 
     if largest_files:
         print(f"The {len(largest_files)} largest files are:")
-        for size, filepath in largest_files:
-            print(f"{size} bytes - {filepath}")
+        for size, filename in largest_files:
+            print(f"{size:.2f} MB - {filename}")
     else:
         print("No files found in the specified directory.")
